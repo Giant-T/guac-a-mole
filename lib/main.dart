@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:guac_a_mole/AppButton.dart';
+import 'package:guac_a_mole/pages/Loading.dart';
+import 'package:guac_a_mole/pages/Home.dart';
+import 'package:guac_a_mole/pages/Jeu.dart';
+import 'package:guac_a_mole/pages/GameOver.dart';
+import 'package:guac_a_mole/pages/About.dart';
+import 'package:guac_a_mole/pages/Score.dart';
+import 'package:guac_a_mole/pages/TableauScore.dart';
+import 'package:guac_a_mole/pages/ValidationScore.dart';
+
+
 
 void main() => runApp(MaterialApp(
-  home: Home(),
+  initialRoute: '/home',
+  routes: {
+    '/': (context) => Loading(),
+    '/home': (context) => Home(),
+    '/jeu': (context) => Jeu(),
+    '/gameover': (context) => GameOver(),
+    '/about': (context) => About(),
+    '/score': (context) => Score(),
+    '/tableauscore': (context) => TableauScore(),
+    '/validationscore': (context) => ValidationScore(),
+  }
 ));
 
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: AppButton(
-          onPressed: () {
-            print('Bien joué ! Même si c\'est Will qui a cliqué.');
-          },
-        ),
-      ),
-      //backgroundColor
-      backgroundColor: Colors.blue[200],
-    );
-  }
-}
