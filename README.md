@@ -1,16 +1,14 @@
 # guac_a_mole
+Réécriture d'un projet en flutter.
 
-A new Flutter project.
+Le projet original à été réalisé en html, css et javascript.
 
-## Getting Started
+Le but du projet est de reproduire le projet original le plus fidèlement possible.
 
-This project is a starting point for a Flutter application.
+Ce projet est réalisé pour être utilisé sur Android.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Contributeurs
+-----------------
+- Gabriel Beaudoin
+- Raphaël Boisvert
+- William Boudreault
