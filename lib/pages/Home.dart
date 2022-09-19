@@ -23,7 +23,7 @@ class Home extends StatelessWidget {
               Padding(
                   padding: const EdgeInsets.only(bottom: 18.0),
                   child: Text(
-                    "Every whack matters".toUpperCase(),
+                    "Every tap matters".toUpperCase(),
                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontFamily: "fa-solid-900",
@@ -32,22 +32,22 @@ class Home extends StatelessWidget {
                   )),
               AppButton(
                   onPressed: () {
-                    print('Bien joué ! Même si c\'est Will qui a cliqué.');
+                    Navigator.pushNamed(context, '/jeu');
                   },
                   text: "New Game"),
               AppButton(
                   onPressed: () {
-                    print('Bien joué ! Même si c\'est Will qui a cliqué.');
+                    Navigator.pushNamed(context, '/tableauscore');
                   },
                   text: "High Scores"),
               AppButton(
                   onPressed: () {
-                    print('Bien joué ! Même si c\'est Will qui a cliqué.');
+                    Navigator.pushNamed(context, '/validationscore');
                   },
                   text: "Score Validator"),
               AppButton(
                   onPressed: () {
-                    print('Bien joué ! Même si c\'est Will qui a cliqué.');
+                    Navigator.pushNamed(context, '/about');
                   },
                   text: "About"),
             ]),
