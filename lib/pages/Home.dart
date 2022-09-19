@@ -32,22 +32,22 @@ class Home extends StatelessWidget {
                   )),
               AppButton(
                   onPressed: () {
-                    print('Bien joué ! Même si c\'est Will qui a cliqué.');
+                    Navigator.pushNamed(context, '/jeu');
                   },
                   text: "New Game"),
               AppButton(
                   onPressed: () {
-                    print('Bien joué ! Même si c\'est Will qui a cliqué.');
+                    Navigator.pushNamed(context, '/tableauscore');
                   },
                   text: "High Scores"),
               AppButton(
                   onPressed: () {
-                    print('Bien joué ! Même si c\'est Will qui a cliqué.');
+                    Navigator.pushNamed(context, '/validationscore');
                   },
                   text: "Score Validator"),
               AppButton(
                   onPressed: () {
-                    print('Bien joué ! Même si c\'est Will qui a cliqué.');
+                    Navigator.pushNamed(context, '/about');
                   },
                   text: "About"),
             ]),
