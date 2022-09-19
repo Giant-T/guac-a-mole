@@ -23,7 +23,7 @@ class Home extends StatelessWidget {
               Padding(
                   padding: const EdgeInsets.only(bottom: 18.0),
                   child: Text(
-                    "Every whack matters".toUpperCase(),
+                    "Every tap matters".toUpperCase(),
                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontFamily: "fa-solid-900",
