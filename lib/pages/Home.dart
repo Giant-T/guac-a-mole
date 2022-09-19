@@ -53,7 +53,7 @@ class Home extends StatelessWidget {
             ]),
       ),
       //backgroundColor
-      backgroundColor: Colors.blue[200],
+      backgroundColor: const Color.fromARGB(0xff, 11, 29, 49),
     );
   }
 }
