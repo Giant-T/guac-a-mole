@@ -3,8 +3,18 @@ import 'package:flutter/material.dart';
 class AppButton extends StatelessWidget {
   final void Function() onPressed;
   final String text;
+  late Color borderColor;
+  late bool isBold;
 
-  const AppButton({required this.onPressed, required this.text, super.key});
+  AppButton(
+      {required this.onPressed,
+      required this.text,
+      Color? borderColor,
+      bool? isBold,
+      super.key}) {
+    this.borderColor = borderColor ?? Colors.white;
+    this.isBold = isBold ?? false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +26,19 @@ class AppButton extends StatelessWidget {
           onPressed: onPressed,
           style: ElevatedButton.styleFrom(
             primary: Colors.transparent,
-            minimumSize: Size(screenWidth * 0.75, 100),
+            minimumSize: Size(screenWidth * 0.75, 75),
             shape: RoundedRectangleBorder(
-                side: const BorderSide(
-                    color: Colors.white, width: 2, style: BorderStyle.solid),
+                side: BorderSide(
+                    color: borderColor, width: 2, style: BorderStyle.solid),
                 borderRadius: BorderRadius.circular(50)),
           ),
           child: Text(
             text.toUpperCase(),
-            style: const TextStyle(
-                fontWeight: FontWeight.bold, color: Colors.white),
+            style: TextStyle(
+                fontFamily: 'fa-solid-900',
+                fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+                fontSize: 20,
+                color: Colors.white),
           ),
         ));
   }
