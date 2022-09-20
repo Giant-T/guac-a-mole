@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:guac_a_mole/components/AppButton.dart';
+import 'package:guac_a_mole/components/AppButtonSonarDonut.dart';
 import '../components/Background.dart';
 
 class Home extends StatelessWidget {
@@ -12,6 +13,10 @@ class Home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              AppButtonSonarDonut(
+                  size: 180,
+                  color: const Color.fromARGB(0xff, 0x58, 0xD1, 0xFF),
+                  onPressed: () {}),
               Text(
                 "Whack-a-mole".toUpperCase(),
                 style: const TextStyle(
