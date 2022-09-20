@@ -59,12 +59,21 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - images/arrow-down.svg
-   - circles-bg.svg
-   - desktop-screenshot.png
-   - im-og_image.png
-   - logo.svg
-   - mobile-screenshot.png
+   - images/backgroundPattern.svg
+   - images/backIcon.png
+   - images/bugIcon.svg
+   - images/flagIcon.svg
+   - images/gemIcon.svg
+   - images/network_status.png
+   - images/pauseIconLarge.svg
+   - images/pauseIconSmall.svg
+   - images/refreshIcon.svg
+   - images/refreshIconBlue.svg
+   - images/tapsIcon.svg
+   - images/timeIcon.svg
+   - images/validate.png
+   - images/watchIcon.svg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

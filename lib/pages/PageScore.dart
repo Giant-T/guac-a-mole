@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Score extends StatelessWidget {
+class PageScore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

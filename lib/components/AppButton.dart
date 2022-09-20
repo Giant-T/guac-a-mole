@@ -1,26 +1,45 @@
 import 'package:flutter/material.dart';
 
 class AppButton extends StatelessWidget {
-  final onPressed;
+  final void Function() onPressed;
+  final String text;
+  late Color borderColor;
+  late bool isBold;
 
-  AppButton({this.onPressed});
+  AppButton(
+      {required this.onPressed,
+      required this.text,
+      Color? borderColor,
+      bool? isBold,
+      super.key}) {
+    this.borderColor = borderColor ?? Colors.white;
+    this.isBold = isBold ?? false;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        primary: Colors.transparent,
-        shape: RoundedRectangleBorder(
-            side: const BorderSide(
-                color: Colors.white, width: 2, style: BorderStyle.solid),
-            borderRadius: BorderRadius.circular(50)),
-      ),
-      child: Text(
-        'Click Raph !'.toUpperCase(),
-        style:
-            const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-      ),
-    );
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return Container(
+        margin: const EdgeInsets.only(bottom: 20),
+        child: ElevatedButton(
+          onPressed: onPressed,
+          style: ElevatedButton.styleFrom(
+            primary: Colors.transparent,
+            minimumSize: Size(screenWidth * 0.75, 75),
+            shape: RoundedRectangleBorder(
+                side: BorderSide(
+                    color: borderColor, width: 2, style: BorderStyle.solid),
+                borderRadius: BorderRadius.circular(50)),
+          ),
+          child: Text(
+            text.toUpperCase(),
+            style: TextStyle(
+                fontFamily: 'fa-solid-900',
+                fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+                fontSize: 20,
+                color: Colors.white),
+          ),
+        ));
   }
 }

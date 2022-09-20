@@ -4,7 +4,7 @@ import 'package:guac_a_mole/pages/Home.dart';
 import 'package:guac_a_mole/pages/Jeu.dart';
 import 'package:guac_a_mole/pages/GameOver.dart';
 import 'package:guac_a_mole/pages/About.dart';
-import 'package:guac_a_mole/pages/Score.dart';
+import 'package:guac_a_mole/pages/PageScore.dart';
 import 'package:guac_a_mole/pages/TableauScore.dart';
 import 'package:guac_a_mole/pages/ValidationScore.dart';
 
@@ -18,7 +18,7 @@ void main() => runApp(MaterialApp(
     '/jeu': (context) => Jeu(),
     '/gameover': (context) => GameOver(),
     '/about': (context) => About(),
-    '/score': (context) => Score(),
+    '/score': (context) => PageScore(),
     '/tableauscore': (context) => TableauScore(),
     '/validationscore': (context) => ValidationScore(),
   }
