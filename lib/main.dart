@@ -11,7 +11,7 @@ import 'package:guac_a_mole/pages/ValidationScore.dart';
 
 
 void main() => runApp(MaterialApp(
-  initialRoute: '/gameover',
+  initialRoute: '/home',
   routes: {
     '/': (context) => Loading(),
     '/home': (context) => Home(),

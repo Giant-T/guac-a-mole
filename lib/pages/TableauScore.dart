@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:guac_a_mole/components/ListScore.dart';
 import 'package:guac_a_mole/components/AppButton.dart';
+import '../components/Background.dart';
 
 
 class TableauScore extends StatelessWidget {
@@ -16,7 +17,8 @@ class TableauScore extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(0xff, 11, 29, 49),
-      body: Center(
+      body: Background(
+      child: Center(
         child:
         Column(
           children: <Widget>[
@@ -47,6 +49,7 @@ class TableauScore extends StatelessWidget {
           ],
         ),
       ),
+    )
     );
   }
 }

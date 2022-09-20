@@ -4,6 +4,8 @@ import '../components/Gradiant.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:guac_a_mole/components/AppTextForm.dart';
 import 'package:guac_a_mole/components/AppButton.dart';
+import 'package:guac_a_mole/components/AppButtonSonarDonut.dart';
+
 
 class GameOver extends StatelessWidget {
   @override
@@ -15,6 +17,7 @@ class GameOver extends StatelessWidget {
         child:  Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Image(image: Svg('images/bugIcon.svg', size: Size(50, 50))),
             Padding(
@@ -83,11 +86,19 @@ class GameOver extends StatelessWidget {
                 ),
               ),
             ),
+            Container(
+              margin: const EdgeInsets.only(top: 10.0),
+              child: AppButtonSonarDonut(
+                  size: 120,
+                  color: Colors.white,
+                  onPressed: () {Navigator.pop(context); Navigator.pop(context);}),
+            ),
             AppTextForm(labeltext: "Name:"),
             Padding(
               padding: const EdgeInsets.all(24.0),
               child: AppButton(
                 onPressed: () {
+                  Navigator.pop(context);
                   Navigator.pop(context);
                 },
                 text: "Validate Score",
