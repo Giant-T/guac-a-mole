@@ -6,7 +6,8 @@ class PageScore extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blue[200],
       body: Center(
-        child: Text("Score"),
+        //make form with date name and score and button to go back to home.
+        child: Text("Page Score"),
       ),
     );
   }
