@@ -35,10 +35,10 @@ class CardScore extends StatelessWidget {
 class ListScore extends StatelessWidget {
   const ListScore({
     Key? key,
-    required this.entries,
+    required this.data,
   }) : super(key: key);
 
-  final List<Score> entries;
+  final List<Score> data;
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +46,10 @@ class ListScore extends StatelessWidget {
       child: Center(
         child: ListView.separated(
           padding: const EdgeInsets.all(1),
-          itemCount: entries.length,
+          itemCount: data.length,
           itemBuilder: (BuildContext context, int index) {
             return Container(
-                child: CardScore(entries[index], index%2==0? Color.fromRGBO(51, 51, 51, 1) : Color.fromRGBO(68, 68, 68, 1))
+                child: CardScore(data[index], index%2==0? Color.fromRGBO(51, 51, 51, 1) : Color.fromRGBO(68, 68, 68, 1))
             );
           },
           separatorBuilder: (BuildContext context, int index) => const Divider(
