@@ -46,9 +46,9 @@ class ValidationScore extends StatelessWidget {
               Divider(
                 color: Colors.white,
               ),
-              AppTextForm(labeltext: "Date", hintText: "DD/MM/YYYY"),
-              AppTextForm(labeltext: "Name"),
-              AppTextForm(labeltext: "Score"),
+              AppTextForm(labeltext: "Date:", hintText: "DD/MM/YYYY"),
+              AppTextForm(labeltext: "Name:"),
+              AppTextForm(labeltext: "Score:"),
               Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: AppButton(
