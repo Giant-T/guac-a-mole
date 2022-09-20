@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:guac_a_mole/components/AppButton.dart';
 import 'package:guac_a_mole/components/AppTextForm.dart';
+import '../components/Background.dart';
 
 class ValidationScore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(0xff, 11, 29, 49),
-      body: Center(
+      body: Background(
+      child: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -17,7 +19,7 @@ class ValidationScore extends StatelessWidget {
                   Column(children: <Widget>[
                     GestureDetector(
                     onTap: () {Navigator.pop(context);}, // Image tapped
-                        child: Image(image: AssetImage('images/backIcon.png'), width: 60, height: 60)
+                        child: const Image(image: AssetImage('images/backIcon.png'), width: 60, height: 60)
                     ),
                     TextButton(
                       onPressed: () {Navigator.pop(context);},
@@ -30,7 +32,7 @@ class ValidationScore extends StatelessWidget {
                   ]),
                 ],
               ),
-              Image(image: AssetImage('images/validate.png'), width: 100, height: 100),
+              const Image(image: AssetImage('images/validate.png'), width: 100, height: 100),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
@@ -43,12 +45,12 @@ class ValidationScore extends StatelessWidget {
                   ),
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.white,
               ),
-              AppTextForm(labeltext: "Date", hintText: "DD/MM/YYYY"),
-              AppTextForm(labeltext: "Name"),
-              AppTextForm(labeltext: "Score"),
+              AppTextForm(labeltext: "Date:", hintText: "DD/MM/YYYY"),
+              AppTextForm(labeltext: "Name:"),
+              AppTextForm(labeltext: "Score:"),
               Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: AppButton(
@@ -60,12 +62,12 @@ class ValidationScore extends StatelessWidget {
                   borderColor: const Color.fromARGB(0xff, 88, 209, 255),
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.white,
               ),
-              Text(
+              const Text(
                 "Score exist:",
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
                   fontFamily: "fa-solid-900",
                   fontSize: 22,
@@ -76,7 +78,7 @@ class ValidationScore extends StatelessWidget {
           ),
         )
       ),
-
+      )
     );
   }
 }
