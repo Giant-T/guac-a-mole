@@ -10,15 +10,10 @@ class About extends StatelessWidget {
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 140.0, bottom: 20.0),
-                  child: Container(
-                      child: Divider(
+              children: <Widget> [
+                  Divider(
                         color: Colors.white,
-                        height: 10,
-                      )),
-                ),
+                  ),
                 Text(
                     "About".toUpperCase(),
                     style: const TextStyle(
@@ -37,14 +32,9 @@ class About extends StatelessWidget {
                     fontSize: 20,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20.0, bottom: 100.0),
-                  child: Container(
-                      child: Divider(
-                        color: Colors.white,
-                        height: 10,
-                      )),
-                ),
+                Divider(
+                    color: Colors.white,
+                  ),
               ]),
         ),
       ),
