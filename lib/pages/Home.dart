@@ -38,7 +38,7 @@ class Home extends StatelessWidget {
                   )),
               AppButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/jeu');
+                    Navigator.pushNamed(context, '/game');
                   },
                   text: "New Game",
                   borderColor: const Color.fromARGB(0xff, 0x58, 0xD1, 0xFF),

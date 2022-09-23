@@ -8,8 +8,8 @@ import 'package:guac_a_mole/pages/PageScore.dart';
 import 'package:guac_a_mole/pages/TableauScore.dart';
 import 'package:guac_a_mole/pages/ValidationScore.dart';
 
-void main() => runApp(MaterialApp(initialRoute: '/home', routes: {
-      '/': (context) => Loading(),
+void main() => runApp(MaterialApp(initialRoute: '/', routes: {
+      '/': (context) => const Loading(key: Key('JonathanEstLeMeilleur')),
       '/home': (context) => Home(),
       '/game': (context) => Game(),
       '/gameover': (context) => GameOver(),

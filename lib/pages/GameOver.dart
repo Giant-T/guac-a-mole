@@ -14,6 +14,9 @@ class GameOver extends StatelessWidget {
       backgroundColor: const Color.fromARGB(0xff, 11, 29, 49),
       body: Background(
       child: Gradiant(
+        r: 255,
+        g: 19,
+        b: 68,
         child:  Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
