@@ -11,9 +11,9 @@ import 'package:guac_a_mole/pages/ValidationScore.dart';
 
 
 void main() => runApp(MaterialApp(
-  initialRoute: '/home',
+  initialRoute: '/',
   routes: {
-    '/': (context) => Loading(),
+    '/': (context) => const Loading(key: Key('JonathanEstLeMeilleur')),
     '/home': (context) => Home(),
     '/jeu': (context) => Jeu(),
     '/gameover': (context) => GameOver(),
