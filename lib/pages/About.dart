@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:guac_a_mole/components/AppButtonSonarDonut.dart';
 import '../components/Background.dart';
+import '../components/Gradiant.dart';
+
 
 class About extends StatelessWidget {
   @override
@@ -8,6 +10,10 @@ class About extends StatelessWidget {
     return Scaffold(
         backgroundColor: const Color.fromARGB(0xff, 11, 29, 49),
         body: Background(
+        child: Gradiant(
+          r: 88,
+          g: 209,
+          b: 255,
           child: Center(
             child: Padding(
               padding: const EdgeInsets.only(left: 30.0, right: 30.0),
@@ -51,6 +57,7 @@ class About extends StatelessWidget {
                   ]),
             ),
           ),
+           ),
           //backgroundColor
         ));
   }
