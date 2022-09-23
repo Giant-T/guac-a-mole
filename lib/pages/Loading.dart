@@ -2,7 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:guac_a_mole/components/AppButtonSonarDonut.dart';
 import 'package:guac_a_mole/components/Background.dart';
 
-class Loading extends StatelessWidget {
+class Loading extends StatefulWidget {
+  const Loading({required Key key}) : super(key: key);
+
+  @override
+  _LoadingState createState() => _LoadingState();
+}
+
+class _LoadingState extends State<Loading> {
+  @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 1, milliseconds: 500), () {
+      Navigator.popAndPushNamed(context, '/home');
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,3 +41,8 @@ class Loading extends StatelessWidget {
     );
   }
 }
+ @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
