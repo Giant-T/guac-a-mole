@@ -4,11 +4,15 @@ class GameHeader extends StatefulWidget {
   final int score;
   final int life;
   final int bonus;
+  final Widget child;
+
   const GameHeader(
       {required this.score,
       required this.life,
       required this.bonus,
+      required this.child,
       super.key});
+
 
   @override
   State<GameHeader> createState() => _GameHeader();
@@ -17,7 +21,7 @@ class GameHeader extends StatefulWidget {
 class _GameHeader extends State<GameHeader> {
   @override
   Widget build(BuildContext context) {
-    return Align(
+    return Column(children: <Widget>[Align(
       alignment: Alignment.topCenter,
       child: Container(
         height: 100,
@@ -119,6 +123,8 @@ class _GameHeader extends State<GameHeader> {
           ],
         ),
       ),
-    );
+    ),
+    widget.child
+    ]);
   }
 }

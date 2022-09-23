@@ -10,12 +10,25 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
+
+  bool _visible = true;
+
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 1, milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 100), () {
+      fading();
+    });
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.popAndPushNamed(context, '/home');
     });
     super.initState();
+
+  }
+
+  void fading() {
+    setState(() {
+      _visible = !_visible;
+    });
   }
 
   @override
@@ -27,16 +40,26 @@ class _LoadingState extends State<Loading> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              AppButtonSonarDonut(
-                  size: 180, color: Colors.white, onPressed: () {}),
-              Text("Loading Awesome stuff".toUpperCase(),
+              AnimatedOpacity(
+                opacity: _visible ? 1.0 : 0.0,
+                duration: const Duration(seconds: 2),
+                child: AppButtonSonarDonut(
+                  size: 180, color: Colors.white, onPressed: () {}
+                ),
+              ),
+             AnimatedOpacity(
+              opacity: _visible ? 1.0 : 0.0,
+              duration: const Duration(milliseconds: 1000),
+               child:Text("Loading Awesome stuff".toUpperCase(),
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontFamily: "fa-solid-900",
                     color: Colors.white,
                     fontSize: 25,
-                  ))
-            ]),
+                  )
+               ),
+             ),
+        ]),
       ),
     );
   }
