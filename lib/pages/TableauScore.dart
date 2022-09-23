@@ -7,10 +7,19 @@ import '../components/Background.dart';
 class TableauScore extends StatelessWidget {
 
   final List<Score> data = <Score>[
-    Score('15/09/2022 11:04:11', 'John', 100),
-    Score('15/09/2022 11:04:11', 'Paul', 200),
-    Score('15/09/2022 11:04:11', 'George', 300),
-    Score('15/09/2022 11:04:11', 'Ringo', 400),
+    Score('2022-09-23 09:22:34', 'player1', 100),
+    Score('2022-09-23 09:22:34', 'player1', 99),
+    Score('2022-09-23 09:22:34', 'player1', 98),
+    Score('2022-09-23 09:22:34', 'player1', 97),
+    Score('2022-09-23 09:22:34', 'player1', 96),
+    Score('2022-09-23 09:22:34', 'player1', 95),
+    Score('2022-09-23 09:22:34', 'player1', 94),
+    Score('2022-09-23 09:22:34', 'player1', 93),
+    Score('2022-09-23 09:22:34', 'player1', 92),
+    Score('2022-09-23 09:22:34', 'player1', 91),
+    Score('2022-09-23 09:22:34', 'player1', 90),
+    Score('2022-09-23 09:22:34', 'player1', 89),
+    Score('2022-09-23 09:22:34', 'player1', 88),
   ];
 
   @override
@@ -22,30 +31,36 @@ class TableauScore extends StatelessWidget {
         child:
         Column(
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Score Validator".toUpperCase(),
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "fa-solid-900",
-                  color: Colors.white,
-                  fontSize: 28,
+            Expanded(
+              flex: 1,
+              child:Padding(
+                padding: const EdgeInsets.only(top: 52),
+                child: Text(
+                  "Highscores".toUpperCase(),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "fa-solid-900",
+                    color: Colors.white,
+                    fontSize: 28,
+                  ),
                 ),
               ),
             ),
-            // ListScore(data: data),
-            Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: AppButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                text: "Validate Score",
-                isBold: true,
-                borderColor: const Color.fromARGB(0xff, 88, 209, 255),
-              ),
-            )
+            Expanded(  flex: 4, child: ListScore(data: data)),
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 18, bottom: 18),
+                child: AppButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  text: "Back to menu",
+                  isBold: true,
+                  borderColor: const Color.fromARGB(0xff, 88, 209, 255),
+                ),
+              )
+            ),
           ],
         ),
       ),

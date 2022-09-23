@@ -16,20 +16,26 @@ class CardScore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: color,
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Row(
-            children: <Widget>[
-              Expanded(child: Text(score.time)),
-              Expanded(child: Text(score.name)),
-              Expanded(child: Text(score.score.toString())),
-            ]),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 12),
+      child: Card(
+        color: color,
+        shape: RoundedRectangleBorder(),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Expanded(flex: 4, child: Text(score.time, style: const TextStyle(fontWeight: FontWeight.bold, fontFamily: "fa-solid-900", color: Colors.white))),
+                Expanded(flex: 3, child: Text(score.name.toUpperCase(), style: const TextStyle(fontWeight: FontWeight.bold, fontFamily: "fa-solid-900", color: Colors.white))),
+                Expanded(flex: 1, child: Text(score.score.toString(), textAlign: TextAlign.right, style: const TextStyle(fontWeight: FontWeight.bold, fontFamily: "fa-solid-900", color: Colors.white))),
+              ]),
+        ),
       ),
     );
   }
 }
+
 
 
 class ListScore extends StatelessWidget {
@@ -53,7 +59,7 @@ class ListScore extends StatelessWidget {
             );
           },
           separatorBuilder: (BuildContext context, int index) => const Divider(
-            height: 2,
+            height: 0.1,
           ),
         ),
       ),
