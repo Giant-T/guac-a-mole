@@ -27,18 +27,17 @@ class Home extends StatelessWidget {
                 ),
               ),
               Padding(
-                  padding: const EdgeInsets.only(bottom: 18.0),
+                  padding: const EdgeInsets.only(bottom: 30.0),
                   child: Text(
                     "Every tap matters".toUpperCase(),
                     style: const TextStyle(
-                        fontWeight: FontWeight.bold,
                         fontFamily: "fa-solid-900",
                         fontSize: 20,
                         color: Color.fromARGB(0xff, 0x58, 0xD1, 0xFF)),
                   )),
               AppButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/game');
+                    Navigator.pushNamed(context, '/taptostart');
                   },
                   text: "New Game",
                   borderColor: const Color.fromARGB(0xff, 0x58, 0xD1, 0xFF),
