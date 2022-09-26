@@ -4,15 +4,11 @@ class GameHeader extends StatefulWidget {
   final int score;
   final int life;
   final int bonus;
-  final Widget child;
-
   const GameHeader(
       {required this.score,
-      required this.life,
-      required this.bonus,
-      required this.child,
-      super.key});
-
+        required this.life,
+        required this.bonus,
+        super.key});
 
   @override
   State<GameHeader> createState() => _GameHeader();
@@ -21,21 +17,21 @@ class GameHeader extends StatefulWidget {
 class _GameHeader extends State<GameHeader> {
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[Align(
+    return Align(
       alignment: Alignment.topCenter,
       child: Container(
         height: 100,
         decoration: const BoxDecoration(
             gradient: LinearGradient(
-          begin: FractionalOffset.topCenter,
-          end: FractionalOffset.bottomCenter,
-          stops: [0.5, 0.8, 1],
-          colors: [
-            Color.fromARGB(255, 11, 29, 49),
-            Color.fromARGB(150, 11, 29, 49),
-            Color.fromARGB(0, 11, 29, 49)
-          ],
-        )),
+              begin: FractionalOffset.topCenter,
+              end: FractionalOffset.bottomCenter,
+              stops: [0.5, 0.8, 1],
+              colors: [
+                Color.fromARGB(255, 11, 29, 49),
+                Color.fromARGB(150, 11, 29, 49),
+                Color.fromARGB(0, 11, 29, 49)
+              ],
+            )),
         child: Row(
           children: <Widget>[
             const Spacer(),
@@ -123,8 +119,6 @@ class _GameHeader extends State<GameHeader> {
           ],
         ),
       ),
-    ),
-    widget.child
-    ]);
+    );
   }
 }
