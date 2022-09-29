@@ -43,12 +43,12 @@ class _Game extends State<Game> {
           GameHeader(bonus: bonus, score: score, life: life)
         ),
         Positioned(
-          top: Random().nextInt((MediaQuery.of(context).size.height).round()).toDouble(),
-          left: Random().nextInt((MediaQuery.of(context).size.width).round()).toDouble() ,
+          top: Random().nextInt((MediaQuery.of(context).size.height-130).round()) + 65,
+          left: Random().nextInt((MediaQuery.of(context).size.width-65).round()).toDouble(),
           child: AppButtonSonarDonut(
             size: 100,
             color: const Color.fromARGB(0xff, 0x58, 0xD1, 0xFF),
-            onPressed: getCircle,
+            onPressed: () {getCircle(); print(MediaQuery.of(context).size.height); print(MediaQuery.of(context).size.width);},
           ),
         ),
       ],),
