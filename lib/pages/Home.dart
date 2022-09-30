@@ -40,7 +40,7 @@ class Home extends StatelessWidget {
                     Navigator.pushNamed(context, '/taptostart');
                   },
                   text: "New Game",
-                  borderColor: const Color.fromARGB(0xff, 0x58, 0xD1, 0xFF),
+                  highlightColor: const Color.fromARGB(0xff, 0x58, 0xD1, 0xFF),
                   isBold: true),
               AppButton(
                   onPressed: () {
