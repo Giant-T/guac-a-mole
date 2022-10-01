@@ -32,33 +32,26 @@ class _Game extends State<Game> {
 
 
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(0xff, 11, 29, 49),
-      body: Background( child:
-          GameHeader(bonus: bonus, score: score, life: life, child:
-            GridView.count(
-                crossAxisCount: 5,
-                shrinkWrap: true,
-                padding: EdgeInsets.only(left: 24, right: 24),
-              children: [
-                AppButtonSonarDonut(
-                  size: 100,
-                  color: const Color.fromARGB(0xff, 0x58, 0xD1, 0xFF),
-                  onPressed: getCircle,
-                ),
-                AppButtonSonarDonut(
-                  size: 100,
-                  color: const Color.fromARGB(0xff, 0x58, 0xD1, 0xFF),
-                  onPressed: getCircle,
-                )
-              ]
-            ),
+      body:
+
+      Stack(  children: [
+        Background( child:
+          GameHeader(bonus: bonus, score: score, life: life)
+        ),
+        Positioned(
+          top: Random().nextInt((MediaQuery.of(context).size.height-130).round()) + 65,
+          left: Random().nextInt((MediaQuery.of(context).size.width-65).round()).toDouble(),
+          child: AppButtonSonarDonut(
+            size: 100,
+            color: const Color.fromARGB(0xff, 0x58, 0xD1, 0xFF),
+            onPressed: () {getCircle(); print(MediaQuery.of(context).size.height); print(MediaQuery.of(context).size.width);},
           ),
-      ),
+        ),
+      ],),
     );
   }
 
