@@ -7,6 +7,10 @@ import 'package:guac_a_mole/components/AppButton.dart';
 import 'package:guac_a_mole/components/AppButtonSonarDonut.dart';
 
 class GameOver extends StatelessWidget {
+  final int score;
+
+  const GameOver ([this.score = 0]);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +69,7 @@ class GameOver extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "0".toUpperCase(),
+                        score.toString(),
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontFamily: "fa-solid-900",
@@ -95,6 +99,7 @@ class GameOver extends StatelessWidget {
                           size: 120,
                           color: Colors.white,
                           onPressed: () {
+                            Navigator.pop(context);
                             Navigator.pop(context);
                             Navigator.pop(context);
                           }),
