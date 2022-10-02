@@ -41,7 +41,7 @@ class _Game extends State<Game> {
       life = life - 1;
     });
 
-    if (life < 0) {
+    if (life <= 0) {
       Navigator.push(context, MaterialPageRoute(builder: (context) => GameOver(score)));
       timer.cancel();
     }

@@ -111,6 +111,7 @@ class GameOver extends StatelessWidget {
                         onPressed: () {
                           Navigator.pop(context);
                           Navigator.pop(context);
+                          Navigator.pop(context);
                         },
                         text: "Validate Score",
                         isBold: true,
