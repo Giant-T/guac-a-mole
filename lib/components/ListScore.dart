@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-
-class Score {
-  final String time;
-  final String name;
-  final int score;
-
-  Score(this.time, this.name, this.score);
-}
+import '../models/Score.dart';
 
 class CardScore extends StatelessWidget {
   final Score score;
