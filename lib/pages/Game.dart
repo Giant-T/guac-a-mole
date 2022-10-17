@@ -2,8 +2,8 @@ import 'package:async/async.dart';
 
 import 'package:flutter/material.dart';
 import 'package:guac_a_mole/pages/GameOver.dart';
-import '../components/Background.dart';
-import '../components/GameHeader.dart';
+import 'package:guac_a_mole/components/Background.dart';
+import 'package:guac_a_mole/components/GameHeader.dart';
 import 'package:guac_a_mole/components/AppButtonSonarDonut.dart';
 import 'dart:math';
 

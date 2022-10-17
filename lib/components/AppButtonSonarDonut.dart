@@ -1,4 +1,4 @@
-import 'SonarDonut.dart';
+import 'package:guac_a_mole/components/SonarDonut.dart';
 import 'package:flutter/material.dart';
 
 class AppButtonSonarDonut extends StatefulWidget {

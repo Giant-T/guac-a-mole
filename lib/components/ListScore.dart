@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/Score.dart';
+import 'package:guac_a_mole/models/Score.dart';
 
 class CardScore extends StatelessWidget {
   final Score score;

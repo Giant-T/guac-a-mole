@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:guac_a_mole/components/ListScore.dart';
 import 'package:guac_a_mole/components/AppButton.dart';
-import '../components/Background.dart';
-import '../models/Score.dart';
+import 'package:guac_a_mole/components/Background.dart';
+import 'package:guac_a_mole/models/Score.dart';
 
 class TableauScore extends StatelessWidget {
   final List<Score> data = <Score>[

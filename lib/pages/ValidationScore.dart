@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:guac_a_mole/components/AppButton.dart';
 import 'package:guac_a_mole/components/AppTextForm.dart';
-import '../components/Background.dart';
+import 'package:guac_a_mole/components/Background.dart';
 
 class ValidationScore extends StatelessWidget {
   @override

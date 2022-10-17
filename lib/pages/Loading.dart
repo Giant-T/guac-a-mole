@@ -13,6 +13,8 @@ class _LoadingState extends State<Loading> {
 
   bool _visible = true;
 
+
+
   @override
   void initState() {
     Future.delayed(const Duration(milliseconds: 100), () {

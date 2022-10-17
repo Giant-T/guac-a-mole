@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../components/Background.dart';
-import '../components/Gradiant.dart';
+import 'package:guac_a_mole/components/Background.dart';
+import 'package:guac_a_mole/components/Gradiant.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:guac_a_mole/components/AppTextForm.dart';
 import 'package:guac_a_mole/components/AppButton.dart';

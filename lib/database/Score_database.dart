@@ -3,8 +3,7 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import '../models/Score.dart';
-
+import 'package:guac_a_mole/models/Score.dart';
 
 class ScoreDatabase {
 
