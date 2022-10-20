@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:guac_a_mole/components/AppButton.dart';
 import 'package:guac_a_mole/components/AppTextForm.dart';
 import 'package:guac_a_mole/components/Background.dart';
+import 'package:guac_a_mole/database/Score_database.dart';
+import 'package:guac_a_mole/models/Score.dart';
 
 class EditScore extends StatelessWidget {
-  String date = "";
-  String name = "";
-  String score = "";
+  final Score score;
+
+  const EditScore({Key? key, required this.score}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,18 +63,22 @@ class EditScore extends StatelessWidget {
                 AppTextForm(
                     labeltext: "Date:",
                     hintText: "DD/MM/YYYY",
-                    onChanged: (value) => date = value),
+                    onChanged: (value) => score.date = value),
                 AppTextForm(
-                    labeltext: "Name:", onChanged: (value) => name = value),
+                    labeltext: "Name:",
+                    onChanged: (value) => score.name = value),
                 AppTextForm(
-                    labeltext: "Score:", onChanged: (value) => score = value),
+                    labeltext: "Score:",
+                    onChanged: (value) => score.score = value as int),
                 Padding(
                   padding: const EdgeInsets.all(24.0),
                   child: AppButton(
                     onPressed: () {
+                      ScoreDatabase.updateScore(score);
+
                       Navigator.pop(context);
                     },
-                    text: "Validate Score",
+                    text: "Update score",
                     isBold: true,
                     highlightColor: const Color.fromARGB(0xff, 88, 209, 255),
                   ),
