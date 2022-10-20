@@ -39,14 +39,10 @@ class EditScore extends StatelessWidget {
                     ]),
                   ],
                 ),
-                const Image(
-                    image: AssetImage('images/validate.png'),
-                    width: 100,
-                    height: 100),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "Score Validator".toUpperCase(),
+                    "Edit score".toUpperCase(),
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontFamily: "fa-solid-900",
