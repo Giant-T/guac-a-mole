@@ -30,8 +30,6 @@ class ScoreDatabase {
       );
   }
 
-  // A method that retrieves all the dogs from the dogs table.
-
   static Future<List<Score>> scores() async {
     final Database db = await database;
     final List<Map<String, dynamic>> maps = await db.query('score');
@@ -45,7 +43,6 @@ class ScoreDatabase {
     });
   }
 
-  //a method update score
   static Future<void> updateScore(Score score) async {
     final db = await database;
     await db.update(
@@ -56,7 +53,6 @@ class ScoreDatabase {
     );
   }
 
-  //a method delete score
   static Future<void> deleteScore(int id) async {
     final db = await database;
     await db.delete(
