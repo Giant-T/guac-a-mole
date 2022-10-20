@@ -6,14 +6,13 @@ import 'package:sqflite/sqflite.dart';
 import 'package:guac_a_mole/models/Score.dart';
 
 class ScoreDatabase {
-
   static Future<Database> get database async {
     WidgetsFlutterBinding.ensureInitialized();
     final Future<Database> database = openDatabase(
       join(await getDatabasesPath(), 'score_database.db'),
       onCreate: (db, version) {
         return db.execute(
-          "CREATE TABLE score(id INTEGER PRIMARY KEY, time TEXT, name TEXT, score INTEGER)",
+          "CREATE TABLE score(id INTEGER PRIMARY KEY, date TEXT, name TEXT, score INTEGER)",
         );
       },
       version: 1,
@@ -22,12 +21,12 @@ class ScoreDatabase {
   }
 
   static Future<void> insertScore(Score score) async {
-      final Database db = await database;
-      await db.insert(
-        'score',
-        score.toMap(),
-        conflictAlgorithm: ConflictAlgorithm.replace,
-      );
+    final Database db = await database;
+    await db.insert(
+      'score',
+      score.toMap(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   static Future<List<Score>> scores() async {
@@ -36,7 +35,7 @@ class ScoreDatabase {
     return List.generate(maps.length, (i) {
       return Score(
         maps[i]['id'],
-        maps[i]['time'],
+        maps[i]['date'],
         maps[i]['name'],
         maps[i]['score'],
       );
@@ -61,5 +60,4 @@ class ScoreDatabase {
       whereArgs: [id],
     );
   }
-
 }
