@@ -4,6 +4,14 @@ import 'package:guac_a_mole/components/AppTextForm.dart';
 import 'package:guac_a_mole/components/Background.dart';
 
 class EditScore extends StatelessWidget {
+  final String date;
+  final String name;
+  final String score;
+
+  const EditScore(
+      {Key? key, required this.date, required this.name, required this.score})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,9 +62,10 @@ class EditScore extends StatelessWidget {
                 const Divider(
                   color: Colors.white,
                 ),
-                AppTextForm(labeltext: "Date:", hintText: "DD/MM/YYYY"),
-                AppTextForm(labeltext: "Name:"),
-                AppTextForm(labeltext: "Score:"),
+                AppTextForm(
+                    labeltext: "Date:", hintText: "DD/MM/YYYY", value: date),
+                AppTextForm(labeltext: "Name:", value: name),
+                AppTextForm(labeltext: "Score:", value: score),
                 Padding(
                   padding: const EdgeInsets.all(24.0),
                   child: AppButton(
