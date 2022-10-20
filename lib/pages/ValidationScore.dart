@@ -2,8 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:guac_a_mole/components/AppButton.dart';
 import 'package:guac_a_mole/components/AppTextForm.dart';
 import 'package:guac_a_mole/components/Background.dart';
+import 'package:guac_a_mole/database/Score_database.dart';
+import 'package:guac_a_mole/models/Score.dart';
 
 class ValidationScore extends StatelessWidget {
+
+  String date = "";
+  String name = "";
+  String score = "";
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,13 +66,20 @@ class ValidationScore extends StatelessWidget {
                 const Divider(
                   color: Colors.white,
                 ),
-                AppTextForm(labeltext: "Date:", hintText: "DD/MM/YYYY"),
-                AppTextForm(labeltext: "Name:"),
-                AppTextForm(labeltext: "Score:"),
+                AppTextForm(labeltext: "Date:", hintText: "DD/MM/YYYY", onChanged: (value) => date = value),
+                AppTextForm(labeltext: "Name:", onChanged: (value) => name = value),
+                AppTextForm(labeltext: "Score:", onChanged: (value) => score = value),
                 Padding(
                   padding: const EdgeInsets.all(24.0),
                   child: AppButton(
                     onPressed: () {
+                      //TODO
+                      ScoreDatabase.insertScore(Score(
+                          0,
+                          name,
+                          date,
+                          int.parse(score),
+                      ));
                       Navigator.pop(context);
                     },
                     text: "Validate Score",

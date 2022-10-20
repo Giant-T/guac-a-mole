@@ -1,16 +1,15 @@
+
+
 import 'package:flutter/material.dart';
 
-// create above class but stateful with value
+//AppTextForm(labeltext: "Name:", onChanged: (value) => name = value),
+
 class AppTextForm extends StatefulWidget {
   final String labeltext;
   late String hintText;
-  late String value;
+  final Function(String) onChanged;
 
-  AppTextForm(
-      {required this.labeltext, String? hintText, String? value, super.key}) {
-    this.hintText = hintText ?? "";
-    this.value = value ?? "";
-  }
+  AppTextForm({required this.labeltext, required this.onChanged, this.hintText = ""});
 
   _AppTextFormState createState() => _AppTextFormState();
 }
@@ -21,7 +20,7 @@ class _AppTextFormState extends State<AppTextForm> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
-        initialValue: widget.value,
+        onChanged: widget.onChanged,
         decoration: InputDecoration(
           labelStyle: const TextStyle(
               fontWeight: FontWeight.bold,

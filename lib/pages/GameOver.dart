@@ -5,11 +5,14 @@ import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:guac_a_mole/components/AppTextForm.dart';
 import 'package:guac_a_mole/components/AppButton.dart';
 import 'package:guac_a_mole/components/AppButtonSonarDonut.dart';
+import 'package:guac_a_mole/database/Score_database.dart';
+import 'package:guac_a_mole/models/Score.dart';
 
 class GameOver extends StatelessWidget {
   final int score;
+  String name = "";
 
-  const GameOver ([this.score = 0]);
+  GameOver ([this.score = 0]);
 
   @override
   Widget build(BuildContext context) {
@@ -104,18 +107,27 @@ class GameOver extends StatelessWidget {
                             Navigator.pop(context);
                           }),
                     ),
-                    AppTextForm(labeltext: "Name:"),
+                    AppTextForm(labeltext: "Name:", onChanged: (value) => name = value),
                     Padding(
                       padding: const EdgeInsets.all(24.0),
                       child: AppButton(
                         onPressed: () {
+                          //TODO
+                          DateTime date = DateTime.now();
+                          ScoreDatabase.insertScore(Score(
+                              0,
+                              date.toString(),
+                              name,
+                              score
+                          ));
+                          Navigator.pop(context);
                           Navigator.pop(context);
                           Navigator.pop(context);
                         },
                         text: "Validate Score",
                         isBold: true,
                         highlightColor:
-                            const Color.fromARGB(0xff, 88, 209, 255),
+                        const Color.fromARGB(0xff, 88, 209, 255),
                       ),
                     )
                   ]),
@@ -124,3 +136,4 @@ class GameOver extends StatelessWidget {
         ));
   }
 }
+
