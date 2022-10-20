@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:guac_a_mole/components/AppButton.dart';
 import 'package:guac_a_mole/components/AppButtonSonarDonut.dart';
-import '../components/Background.dart';
+import 'package:guac_a_mole/components/Background.dart';
 
 class Home extends StatelessWidget {
   @override

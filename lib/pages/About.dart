@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:guac_a_mole/components/AppButtonSonarDonut.dart';
-import '../components/Background.dart';
-import '../components/Gradiant.dart';
+import 'package:guac_a_mole/components/Background.dart';
+import 'package:guac_a_mole/components/Gradiant.dart';
 
 class About extends StatelessWidget {
   @override

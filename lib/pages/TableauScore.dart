@@ -1,23 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:guac_a_mole/components/ListScore.dart';
 import 'package:guac_a_mole/components/AppButton.dart';
-import '../components/Background.dart';
+import 'package:guac_a_mole/components/Background.dart';
+import 'package:guac_a_mole/models/Score.dart';
 
 class TableauScore extends StatelessWidget {
   final List<Score> data = <Score>[
-    Score('2022-09-23 09:22:34', 'player1', 100),
-    Score('2022-09-23 09:22:34', 'player1', 99),
-    Score('2022-09-23 09:22:34', 'player1', 98),
-    Score('2022-09-23 09:22:34', 'player1', 97),
-    Score('2022-09-23 09:22:34', 'player1', 96),
-    Score('2022-09-23 09:22:34', 'player1', 95),
-    Score('2022-09-23 09:22:34', 'player1', 94),
-    Score('2022-09-23 09:22:34', 'player1', 93),
-    Score('2022-09-23 09:22:34', 'player1', 92),
-    Score('2022-09-23 09:22:34', 'player1', 91),
-    Score('2022-09-23 09:22:34', 'player1', 90),
-    Score('2022-09-23 09:22:34', 'player1', 89),
-    Score('2022-09-23 09:22:34', 'player1', 88),
+    Score(1, "time", "name", 100),
+    Score(2, "time", "name2", 99),
   ];
 
   @override
