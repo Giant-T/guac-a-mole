@@ -17,19 +17,36 @@ class CardScore extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Expanded(flex: 4, child: Text(score.time, style: const TextStyle(fontWeight: FontWeight.bold, fontFamily: "fa-solid-900", color: Colors.white))),
-                Expanded(flex: 3, child: Text(score.name.toUpperCase(), style: const TextStyle(fontWeight: FontWeight.bold, fontFamily: "fa-solid-900", color: Colors.white))),
-                Expanded(flex: 1, child: Text(score.score.toString(), textAlign: TextAlign.right, style: const TextStyle(fontWeight: FontWeight.bold, fontFamily: "fa-solid-900", color: Colors.white))),
+                Expanded(
+                    flex: 4,
+                    child: Text(score.date,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "fa-solid-900",
+                            color: Colors.white))),
+                Expanded(
+                    flex: 3,
+                    child: Text(score.name.toUpperCase(),
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "fa-solid-900",
+                            color: Colors.white))),
+                Expanded(
+                    flex: 1,
+                    child: Text(score.score.toString(),
+                        textAlign: TextAlign.right,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "fa-solid-900",
+                            color: Colors.white))),
               ]),
         ),
       ),
     );
   }
 }
-
-
 
 class ListScore extends StatelessWidget {
   const ListScore({
@@ -48,8 +65,11 @@ class ListScore extends StatelessWidget {
           itemCount: data.length,
           itemBuilder: (BuildContext context, int index) {
             return Container(
-                child: CardScore(data[index], index%2==0? Color.fromRGBO(51, 51, 51, 1) : Color.fromRGBO(68, 68, 68, 1))
-            );
+                child: CardScore(
+                    data[index],
+                    index % 2 == 0
+                        ? Color.fromRGBO(51, 51, 51, 1)
+                        : Color.fromRGBO(68, 68, 68, 1)));
           },
           separatorBuilder: (BuildContext context, int index) => const Divider(
             height: 0.1,

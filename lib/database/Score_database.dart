@@ -6,14 +6,13 @@ import 'package:sqflite/sqflite.dart';
 import 'package:guac_a_mole/models/Score.dart';
 
 class ScoreDatabase {
-
   static Future<Database> get database async {
     WidgetsFlutterBinding.ensureInitialized();
     final Future<Database> database = openDatabase(
       join(await getDatabasesPath(), 'score_database.db'),
       onCreate: (db, version) {
         return db.execute(
-          "CREATE TABLE score(id INTEGER PRIMARY KEY AUTOINCREMENT, time TEXT, name TEXT, score INTEGER)",
+          "CREATE TABLE score(id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, name TEXT, score INTEGER)",
         );
       },
       version: 1,
@@ -63,5 +62,4 @@ class ScoreDatabase {
       whereArgs: [id],
     );
   }
-
 }

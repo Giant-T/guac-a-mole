@@ -2,20 +2,18 @@ import 'package:flutter/material.dart';
 
 class Score {
   final int id;
-  final String time;
-  final String name;
-  final int score;
+  String date;
+  String name;
+  int score;
 
-  Score(this.id, this.time, this.name, this.score);
+  Score(this.id, this.date, this.name, this.score);
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'time': time,
+      'date': date,
       'name': name,
       'score': score,
     };
   }
-
 }
-
