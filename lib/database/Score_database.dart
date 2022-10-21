@@ -12,7 +12,7 @@ class ScoreDatabase {
       join(await getDatabasesPath(), 'score_database.db'),
       onCreate: (db, version) {
         return db.execute(
-          "CREATE TABLE score(id INTEGER PRIMARY KEY, date TEXT, name TEXT, score INTEGER)",
+          "CREATE TABLE score(id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, name TEXT, score INTEGER)",
         );
       },
       version: 1,
@@ -21,25 +21,27 @@ class ScoreDatabase {
   }
 
   static Future<void> insertScore(Score score) async {
-    final Database db = await database;
-    await db.insert(
-      'score',
-      score.toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
+      final Database db = await database;
+      Map<String, dynamic> values = score.toMap();
+      values.remove('id');
+
+      await db.insert(
+        'score',
+        values,
+        conflictAlgorithm: ConflictAlgorithm.replace,
+      );
   }
 
   static Future<List<Score>> scores() async {
     final Database db = await database;
     final List<Map<String, dynamic>> maps = await db.query('score');
-    return List.generate(maps.length, (i) {
-      return Score(
-        maps[i]['id'],
-        maps[i]['date'],
-        maps[i]['name'],
-        maps[i]['score'],
-      );
-    });
+    List<Score> result = [];
+
+    for (Map map in maps) {
+      result.add(Score(map['id'], map['date'], map['name'], map['score']));
+    }
+
+    return result;
   }
 
   static Future<void> updateScore(Score score) async {
