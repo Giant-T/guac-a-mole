@@ -38,7 +38,7 @@ class ScoreDatabase {
     List<Score> result = [];
 
     for (Map map in maps) {
-      result.add(Score(map['id'], map['time'], map['name'], map['score']));
+      result.add(Score(map['id'], map['date'], map['name'], map['score']));
     }
 
     return result;
