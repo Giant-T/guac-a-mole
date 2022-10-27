@@ -10,7 +10,10 @@ class TableauScore extends StatelessWidget {
 
   Future<void> getData() async {
     data = await ScoreDatabase.scores();
-    print(data);
+  }
+
+  Future<void> deleteFromList(int index) async {
+    await ScoreDatabase.deleteScore(data[index].id);
   }
 
   @override
@@ -38,7 +41,10 @@ class TableauScore extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Expanded(flex: 4, child: ListScore(data: data)),
+                    Expanded(
+                        flex: 4,
+                        child: ListScore(
+                            data: data, deleteFromList: deleteFromList)),
                     Expanded(
                         flex: 1,
                         child: Padding(
