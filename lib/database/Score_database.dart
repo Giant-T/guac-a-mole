@@ -21,15 +21,15 @@ class ScoreDatabase {
   }
 
   static Future<void> insertScore(Score score) async {
-      final Database db = await database;
-      Map<String, dynamic> values = score.toMap();
-      values.remove('id');
+    final Database db = await database;
+    Map<String, dynamic> values = score.toMap();
+    values.remove('id');
 
-      await db.insert(
-        'score',
-        values,
-        conflictAlgorithm: ConflictAlgorithm.replace,
-      );
+    await db.insert(
+      'score',
+      values,
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   static Future<List<Score>> scores() async {

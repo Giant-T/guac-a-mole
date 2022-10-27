@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 //AppTextForm(labeltext: "Name:", onChanged: (value) => name = value),
@@ -7,11 +5,19 @@ import 'package:flutter/material.dart';
 class AppTextForm extends StatefulWidget {
   final String labeltext;
   late String hintText;
+  final String initialValue;
   final Function(String) onChanged;
 
-  AppTextForm({required this.labeltext, required this.onChanged, this.hintText = ""});
+  AppTextForm(
+      {Key? key,
+      required this.labeltext,
+      required this.onChanged,
+      this.hintText = "",
+      this.initialValue = ""})
+      : super(key: key);
 
-  _AppTextFormState createState() => _AppTextFormState();
+  @override
+  State<AppTextForm> createState() => _AppTextFormState();
 }
 
 class _AppTextFormState extends State<AppTextForm> {
@@ -20,6 +26,7 @@ class _AppTextFormState extends State<AppTextForm> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        initialValue: widget.initialValue,
         onChanged: widget.onChanged,
         decoration: InputDecoration(
           labelStyle: const TextStyle(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:guac_a_mole/models/Score.dart';
+import 'package:guac_a_mole/pages/EditScore.dart';
 
 class CardScore extends StatelessWidget {
   final Score score;
@@ -16,32 +17,40 @@ class CardScore extends StatelessWidget {
         shape: RoundedRectangleBorder(),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Expanded(
-                    flex: 4,
-                    child: Text(score.date,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "fa-solid-900",
-                            color: Colors.white))),
-                Expanded(
-                    flex: 3,
-                    child: Text(score.name.toUpperCase(),
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "fa-solid-900",
-                            color: Colors.white))),
-                Expanded(
-                    flex: 1,
-                    child: Text(score.score.toString(),
-                        textAlign: TextAlign.right,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "fa-solid-900",
-                            color: Colors.white))),
-              ]),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => EditScore(score: score)));
+            },
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Expanded(
+                      flex: 4,
+                      child: Text(score.date,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "fa-solid-900",
+                              color: Colors.white))),
+                  Expanded(
+                      flex: 3,
+                      child: Text(score.name.toUpperCase(),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "fa-solid-900",
+                              color: Colors.white))),
+                  Expanded(
+                      flex: 1,
+                      child: Text(score.score.toString(),
+                          textAlign: TextAlign.right,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "fa-solid-900",
+                              color: Colors.white))),
+                ]),
+          ),
         ),
       ),
     );
