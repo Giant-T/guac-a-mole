@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:guac_a_mole/models/Score.dart';
 
@@ -48,28 +49,39 @@ class CardScore extends StatelessWidget {
   }
 }
 
-class ListScore extends StatelessWidget {
-  const ListScore({
-    Key? key,
-    required this.data,
-  }) : super(key: key);
-
+class ListScore extends StatefulWidget {
   final List<Score> data;
+  AsyncValueSetter<int> deleteFromList;
 
+  ListScore({Key? key, required this.data, required this.deleteFromList})
+      : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _ListScoreState();
+}
+
+class _ListScoreState extends State<ListScore> {
   @override
   Widget build(BuildContext context) {
     return Scrollbar(
       child: Center(
         child: ListView.separated(
           padding: const EdgeInsets.all(1),
-          itemCount: data.length,
+          itemCount: widget.data.length,
           itemBuilder: (BuildContext context, int index) {
-            return Container(
+            return Dismissible(
+                key: Key(index.toString()),
+                onDismissed: (direction) async {
+                  await widget.deleteFromList(index);
+                  setState(() {
+                    widget.data.removeAt(index);
+                  });
+                },
                 child: CardScore(
-                    data[index],
+                    widget.data[index],
                     index % 2 == 0
-                        ? Color.fromRGBO(51, 51, 51, 1)
-                        : Color.fromRGBO(68, 68, 68, 1)));
+                        ? const Color.fromRGBO(51, 51, 51, 1)
+                        : const Color.fromRGBO(68, 68, 68, 1)));
           },
           separatorBuilder: (BuildContext context, int index) => const Divider(
             height: 0.1,
