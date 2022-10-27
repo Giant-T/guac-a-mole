@@ -18,40 +18,32 @@ class CardScore extends StatelessWidget {
         shape: RoundedRectangleBorder(),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => EditScore(score: score)));
-            },
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Expanded(
-                      flex: 4,
-                      child: Text(score.date,
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "fa-solid-900",
-                              color: Colors.white))),
-                  Expanded(
-                      flex: 3,
-                      child: Text(score.name.toUpperCase(),
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "fa-solid-900",
-                              color: Colors.white))),
-                  Expanded(
-                      flex: 1,
-                      child: Text(score.score.toString(),
-                          textAlign: TextAlign.right,
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "fa-solid-900",
-                              color: Colors.white))),
-                ]),
-          ),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Expanded(
+                    flex: 4,
+                    child: Text(score.date,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "fa-solid-900",
+                            color: Colors.white))),
+                Expanded(
+                    flex: 3,
+                    child: Text(score.name.toUpperCase(),
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "fa-solid-900",
+                            color: Colors.white))),
+                Expanded(
+                    flex: 1,
+                    child: Text(score.score.toString(),
+                        textAlign: TextAlign.right,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "fa-solid-900",
+                            color: Colors.white))),
+              ]),
         ),
       ),
     );
@@ -86,11 +78,24 @@ class _ListScoreState extends State<ListScore> {
                     widget.data.removeAt(index);
                   });
                 },
-                child: CardScore(
-                    widget.data[index],
-                    index % 2 == 0
-                        ? const Color.fromRGBO(51, 51, 51, 1)
-                        : const Color.fromRGBO(68, 68, 68, 1)));
+                child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context)
+                          .push(
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              EditScore(score: widget.data[index]),
+                        ),
+                      )
+                          .then((_) {
+                        setState(() {});
+                      });
+                    },
+                    child: CardScore(
+                        widget.data[index],
+                        index % 2 == 0
+                            ? const Color.fromRGBO(51, 51, 51, 1)
+                            : const Color.fromRGBO(68, 68, 68, 1))));
           },
           separatorBuilder: (BuildContext context, int index) => const Divider(
             height: 0.1,

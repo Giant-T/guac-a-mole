@@ -4,18 +4,12 @@ import 'package:guac_a_mole/components/AppTextForm.dart';
 import 'package:guac_a_mole/components/Background.dart';
 import 'package:guac_a_mole/database/Score_database.dart';
 import 'package:guac_a_mole/models/Score.dart';
+import 'package:guac_a_mole/utils/utils.dart';
 
 class EditScore extends StatelessWidget {
   final Score score;
 
   const EditScore({Key? key, required this.score}) : super(key: key);
-
-  bool isNumeric(String s) {
-    if (s == null) {
-      return false;
-    }
-    return int.tryParse(s) != null;
-  }
 
   @override
   Widget build(BuildContext context) {

@@ -4,6 +4,7 @@ import 'package:guac_a_mole/components/AppTextForm.dart';
 import 'package:guac_a_mole/components/Background.dart';
 import 'package:guac_a_mole/database/Score_database.dart';
 import 'package:guac_a_mole/models/Score.dart';
+import 'package:guac_a_mole/utils/utils.dart';
 
 class ValidationScore extends StatelessWidget {
   String date = "";
@@ -76,12 +77,11 @@ class ValidationScore extends StatelessWidget {
                   padding: const EdgeInsets.all(24.0),
                   child: AppButton(
                     onPressed: () {
-                      //TODO
                       ScoreDatabase.insertScore(Score(
                         0,
                         name,
                         date,
-                        int.parse(score),
+                        isNumeric(score) ? int.parse(score) : 0,
                       ));
                       Navigator.pop(context);
                     },
