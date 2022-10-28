@@ -4,6 +4,7 @@ import 'package:guac_a_mole/components/AppTextForm.dart';
 import 'package:guac_a_mole/components/Background.dart';
 import 'package:guac_a_mole/database/Score_database.dart';
 import 'package:guac_a_mole/models/Score.dart';
+import 'package:guac_a_mole/utils/utils.dart';
 
 class EditScore extends StatelessWidget {
   final Score score;
@@ -62,14 +63,17 @@ class EditScore extends StatelessWidget {
                 ),
                 AppTextForm(
                     labeltext: "Date:",
-                    hintText: "DD/MM/YYYY",
+                    initialValue: score.date,
                     onChanged: (value) => score.date = value),
                 AppTextForm(
                     labeltext: "Name:",
+                    initialValue: score.name,
                     onChanged: (value) => score.name = value),
                 AppTextForm(
                     labeltext: "Score:",
-                    onChanged: (value) => score.score = value as int),
+                    initialValue: score.score.toString(),
+                    onChanged: (value) =>
+                        score.score = isNumeric(value) ? int.parse(value) : 0),
                 Padding(
                   padding: const EdgeInsets.all(24.0),
                   child: AppButton(
@@ -81,17 +85,6 @@ class EditScore extends StatelessWidget {
                     text: "Update score",
                     isBold: true,
                     highlightColor: const Color.fromARGB(0xff, 88, 209, 255),
-                  ),
-                ),
-                const Divider(
-                  color: Colors.white,
-                ),
-                const Text(
-                  "Score exist:",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: "fa-solid-900",
-                    fontSize: 22,
                   ),
                 )
               ],

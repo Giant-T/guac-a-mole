@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:guac_a_mole/models/Score.dart';
+import 'package:guac_a_mole/pages/EditScore.dart';
 
 class CardScore extends StatelessWidget {
   final Score score;
@@ -77,11 +78,24 @@ class _ListScoreState extends State<ListScore> {
                     widget.data.removeAt(index);
                   });
                 },
-                child: CardScore(
-                    widget.data[index],
-                    index % 2 == 0
-                        ? const Color.fromRGBO(51, 51, 51, 1)
-                        : const Color.fromRGBO(68, 68, 68, 1)));
+                child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context)
+                          .push(
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              EditScore(score: widget.data[index]),
+                        ),
+                      )
+                          .then((_) {
+                        setState(() {});
+                      });
+                    },
+                    child: CardScore(
+                        widget.data[index],
+                        index % 2 == 0
+                            ? const Color.fromRGBO(51, 51, 51, 1)
+                            : const Color.fromRGBO(68, 68, 68, 1))));
           },
           separatorBuilder: (BuildContext context, int index) => const Divider(
             height: 0.1,
